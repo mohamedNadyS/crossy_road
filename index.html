@@ -6,10 +6,28 @@
     <style>
       body { margin: 0;   display: flex;}
       canvas {display: block;}
+
+      #gameoverscreen{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            z-index: 200;
+      }
     </style>
   </head>
   <body>
 <!--<canvas class="game"></canvas>-->    
     <script type="module" src="./main.js"></script>
+    <div id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Score: <span id="finalScore">0</span></p>
+        <p>Press SPACE to restart</p>
+    </div>
   </body>
 </html>

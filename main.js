@@ -223,7 +223,7 @@ function addRows(){
         const sevenTrees = Tree(palce,height);
         row.add(sevenTrees);
       });
-      mapLinear.add(row)
+      Fmap.add(row)
     }
     else if(rowData.type=="car"){
       const row = Road(rowIndex);
@@ -243,7 +243,7 @@ function Wheel(xposi){
   const wheelG = new THREE.BoxGeometry(0.5,1.8,0.5);
   const wheelMat = new THREE.MeshLambertMaterial({color:0x222222, flatShading:true})
   const wheel = new THREE.Mesh(wheelG,wheelMat);
-  wheel.position.x =x;
+  wheel.position.x =xposi;
   wheel.position.z = 1;
   return wheel;
 }
@@ -271,7 +271,7 @@ function Car(intialTile,direction,color){
 }
 function Road(rowIndex){
   const roadGroup = new THREE.Group();
-  road.position.y = rowIndex*TileSize;
+  roadGroup.position.y = rowIndex*TileSize;
   const roadG = new THREE.PlaneGeometry(TileRow*TileSize,TileSize);
   const roadMat = new THREE.MeshLambertMaterial({color:0x454a59});
   const road = new THREE.Mesh(roadG,roadMat);
@@ -299,10 +299,12 @@ scene.add(camera);
 scene.add(dLight);
 scene.add(aLight);
 scene.add(turtle);
+startMap();
 scene.add( Fmap );
 scene.background =new THREE.Color(0xa0d8f0);
 camera.position.set(5,2,10);
 camera.lookAt(0,1,1);
+
 function animate(){
   animatePlayer();
   renderer.render( scene, camera );
